@@ -2,15 +2,9 @@ import java.util.Random;
 
 public class MatrixExample {
     public static void main(String[] args) {
-        int[][] matrix = {
-                { 1, 2, 3, 4, 5, 6 },
-                { 4, 5, 6, 3, 7, 2 },
-                { 27, 8, 9, 5, 3, 21 },
-                { 73, 2, 19, 5, 1, 8 },
-                { 47, 9, 9, 5, 0, 22 },
-                { 78, 86, 1, 4, 1, 21 },
-                { 73, 18, 2, 2, 5, 11 }
-        };
+        int[][] matrix =
+                {{1, 2, 3, 4, 5, 6}, {4, 5, 6, 3, 7, 2}, {27, 8, 9, 5, 3, 21}, {73, 2, 19, 5, 1, 8},
+                        {47, 9, 9, 5, 0, 22}, {78, 86, 1, 4, 1, 21}, {73, 18, 2, 2, 5, 11}};
 
         int numRows = 6;
         int numCols = 7;
@@ -40,13 +34,13 @@ public class MatrixExample {
         }
 
         // Some more issues here too
-        int[][] result = new int[rows1+1][cols2+1];
+        int[][] result = new int[rows1][cols2];
 
         // Lots of issues with this code, it used to be working perfectly though
-        for (int i = 0; i < rows1; i++) {
+        for (int i = 0; i < rows1 ; i++) {
             for (int j = 0; j < cols2; j++) {
                 for (int k = 0; k < cols1; k++) {
-                    result[j][k] += matrix1[i][j] * matrix2[k][j];
+                    result[j][k] += matrix1[i][k] * matrix2[k][j];
                 }
             }
         }
@@ -65,6 +59,15 @@ public class MatrixExample {
         }
 
         return matrix;
+    }
+
+    public static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 
 }
